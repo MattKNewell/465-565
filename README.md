@@ -10,18 +10,18 @@ Have an arbitrary number of images in resources folder.
 To run this locally:
 
 #create a service account
-gcloud iam service-accounts create \
+`gcloud iam service-accounts create \
     vision-quickstart --project \
-    pythonhotdawg
+    pythonhotdawg`
 #Create a service account Key
-gcloud iam service-accounts keys \
+`gcloud iam service-accounts keys \
     create key.json --iam-account \
-  vision-quickstart@pythonhotdawg.iam.gserviceaccount.com
+  vision-quickstart@pythonhotdawg.iam.gserviceaccount.com`
 
 #Let google know where you key is held.
-export \
-    GOOGLE_APPLICATION_CREDENTIALS=key.json
+`export \
+    GOOGLE_APPLICATION_CREDENTIALS=key.json`
 
-virtualenv env; source env/bin/activate
-pip install -r requirements.txt
-python main.py
+`virtualenv env; source env/bin/activate`
+`pip install -r requirements.txt`
+`python main.py`
