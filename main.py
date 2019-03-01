@@ -27,6 +27,7 @@ app = Flask(__name__)
 # [START form]
 @app.route('/')
 def form():
+    #run_quickstart()
     return render_template('index.html')
 # [END form]
 
@@ -34,19 +35,19 @@ def form():
 # [START submitted]
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
-    name = request.form['name']
-    email = request.form['email']
+    #name = request.form['name']
+    #email = request.form['email']
+    #site = request.form['site_url']
     site = request.form['site_url']
-    comments = request.form['comments']
-
+    imgObject = run_quickstart(site)
     # [END submitted]
     # [START render_template]
     return render_template(
         'submitted_form.html',
-        name=name,
-        email=email,
-        site=site,
-        comments=comments)
+        #name=name,
+        #email=email,
+        site=site)
+        #comments=comments)
     # [END render_template]
 
 
@@ -59,7 +60,7 @@ def server_error(e):
 
 
 
-def run_quickstart():
+def run_quickstart(input_url):
     # [START vision_quickstart]
     import io
     import os
@@ -78,7 +79,7 @@ def run_quickstart():
     # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
-        'resources/wakeupcat.jpg')
+        input_url)
 
     # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
@@ -91,10 +92,10 @@ def run_quickstart():
     labels = response.label_annotations
 
     print('Labels:')
-    #for label in labels:
-        #print(label.description)
-    # [END vision_quickstart]
-    return labels
+    for label in labels:
+        print(label.description)
+     #[END vision_quickstart]
+    #return labels
 
 
 #if __name__ == '__main__':
