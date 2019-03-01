@@ -1,10 +1,19 @@
 
-a small description of our plan:
-
+##The image guessing game.
+#####A small description
+---
+**Description**
 Have an arbitrary number of images in resources folder.
  Use a random library to display 3 images to the user
  with top 3 descriptions and the user needs to guess
  which picture correlates with the descriptions.  
+
+---
+
+\fbox{Have an arbitrary number of images in resources folder.
+ Use a random library to display 3 images to the user
+ with top 3 descriptions and the user needs to guess
+ which picture correlates with the descriptions.}
 
 
 To run this locally:
@@ -17,5 +26,5 @@ To run this locally:
 #Let google know where you key is held.
 `export GOOGLE_APPLICATION_CREDENTIALS=key.json`
 
-`virtualenv env; source env/bin/activate; `pip install -r requirements.txt`
+`virtualenv env; source env/bin/activate; pip install -r requirements.txt`
 `python main.py`
