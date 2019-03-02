@@ -5,12 +5,15 @@
   </head>
   <body>
     <div id="container">
+ <img src="../resources/dame.jpg" alt="dame">
+      <img src="../resources/cat.jpg" alt="cat">
+ 	{{labels}}   
       <div class="pagetitle">
         <h1>Submit a form</h1>
       </div>
-      <div id="main">
+       <div id="main">
         <form method="post" action="{{ url_for('submitted_form') }}">
-          <label for="site_url">Website URL:</label>
+          <label for="site_url">image:</label>
           <input type="url" name="site_url"><br />
           <input type="submit">
         </form>

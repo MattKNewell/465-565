@@ -27,8 +27,10 @@ app = Flask(__name__)
 # [START form]
 @app.route('/')
 def form():
-    #run_quickstart()
-    return render_template('index.html')
+    fake_url = ""
+    labels = run_quickstart(fake_url)
+
+    return render_template('index.html', labels = labels)
 # [END form]
 
 
@@ -79,7 +81,7 @@ def run_quickstart(input_url):
     # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
-        input_url)
+        'resources/' + 'dame.jpg')
 
     # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
@@ -95,7 +97,7 @@ def run_quickstart(input_url):
     for label in labels:
         print(label.description)
      #[END vision_quickstart]
-    #return labels
+    return labels
 
 
 #if __name__ == '__main__':
