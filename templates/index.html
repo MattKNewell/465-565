@@ -12,15 +12,13 @@
 	      {{correctImage}}
         <h1>Submit a form</h1>
       </div>
-       <div id="main">
-        <form method="post" action="{{ url_for('submitted_form') }}">
-          <label for="site_url">enter 1.jpg 2.jpg or 3.jpg</label>
-          <input type="text" name="image_name"><br />
-          <label for="correctAnswer">Correct Answer</label>
-	  <input type="text" value={{correctAnswer}} name="correctAnswer"><br />
-          <input type="submit">
-        </form>
-      </div>
+         <form method="post" action="{{ url_for('submitted_form') }}">
+	  <input type="radio" name="image_name" value="1.jpg" checked> 1<br>
+	  <input type="radio" name="image_name" value="2.jpg"> 2<br>
+	  <input type="radio" name="image_name" value="3.jpg"> 3<br>
+	  <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
+	 <input type="submit">
+    	</form>
     </div>
   </body>
 </html>
