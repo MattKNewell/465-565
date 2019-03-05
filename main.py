@@ -27,29 +27,23 @@ app = Flask(__name__)
 # [START form]
 @app.route('/')
 def form():
-    fake_url = ""
-    labels = run_quickstart(fake_url)
 
-    return render_template('index.html', labels = labels)
+    return render_template('index.html')
 # [END form]
 
 
 # [START submitted]
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
-    #name = request.form['name']
-    #email = request.form['email']
-    #site = request.form['site_url']
-    site = request.form['site_url']
-    imgObject = run_quickstart(site)
+    
+    image_name =request.form['image_name']
+    imgObject = run_quickstart(image_name)
+    image_name = "https://storage.googleapis.com/image_guess_game/" + image_name
+    print(image_name)
+
     # [END submitted]
     # [START render_template]
-    return render_template(
-        'submitted_form.html',
-        #name=name,
-        #email=email,
-        site=site)
-        #comments=comments)
+    return render_template('submitted_form.html', imgObject=imgObject, image_name=image_name)
     # [END render_template]
 
 
@@ -62,7 +56,7 @@ def server_error(e):
 
 
 
-def run_quickstart(input_url):
+def run_quickstart(image_name):
     # [START vision_quickstart]
     import io
     import os
@@ -81,7 +75,7 @@ def run_quickstart(input_url):
     # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
-        'resources/' + 'dame.jpg')
+        "resources/" + image_name)
 
     # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
@@ -98,10 +92,6 @@ def run_quickstart(input_url):
         print(label.description)
      #[END vision_quickstart]
     return labels
-
-
-#if __name__ == '__main__':
-    #run_quickstart()
 
 
 if __name__ == '__main__':
