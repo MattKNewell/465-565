@@ -9,11 +9,12 @@
 	    <!--<img src="gs://${image_guess_game}/dame.jpg" alt="dame"> -->
 
       <div class="pagetitle">
+	      {{correctImage}}
         <h1>Submit a form</h1>
       </div>
        <div id="main">
         <form method="post" action="{{ url_for('submitted_form') }}">
-          <label for="site_url">image:</label>
+          <label for="site_url">enter 1.jpg 2.jpg or 3.jpg</label>
           <input type="text" name="image_name"><br />
           <input type="submit">
         </form>

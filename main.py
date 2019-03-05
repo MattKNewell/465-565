@@ -14,7 +14,7 @@
 
 # [START app]
 import logging
-
+import random
 # [START imports]
 from flask import Flask, render_template, request
 # [END imports]
@@ -27,8 +27,16 @@ app = Flask(__name__)
 # [START form]
 @app.route('/')
 def form():
+    
+    randomNumber = random.randint(1,3)
+    randomNumberString = str(randomNumber) + ".jpg"
+    image1 = "https://storage.googleapis.com/image_guess_game/1.jpg"
+    image2 = "https://storage.googleapis.com/image_guess_game/2.jpg"
+    image3 = "https://storage.googleapis.com/image_guess_game/3.jpg"
+    correctImage = run_quickstart(randomNumberString)
 
-    return render_template('index.html')
+
+    return render_template('index.html', correctImage=correctImage)
 # [END form]
 
 
