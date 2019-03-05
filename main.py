@@ -29,14 +29,14 @@ app = Flask(__name__)
 def form():
     
     randomNumber = random.randint(1,3)
-    randomNumberString = str(randomNumber) + ".jpg"
+    correctAnswer = str(randomNumber) + ".jpg"
     image1 = "https://storage.googleapis.com/image_guess_game/1.jpg"
     image2 = "https://storage.googleapis.com/image_guess_game/2.jpg"
     image3 = "https://storage.googleapis.com/image_guess_game/3.jpg"
-    correctImage = run_quickstart(randomNumberString)
+    correctImage = run_quickstart(correctAnswer)
+    print("Correct answer is: " + correctAnswer)
 
-
-    return render_template('index.html', correctImage=correctImage)
+    return render_template('index.html', correctImage=correctImage, correctAnswer=correctAnswer)
 # [END form]
 
 
@@ -44,14 +44,20 @@ def form():
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
     
-    image_name =request.form['image_name']
+    image_name = request.form['image_name']
+    correctAnswer = request.form['correctAnswer']
     imgObject = run_quickstart(image_name)
-    image_name = "https://storage.googleapis.com/image_guess_game/" + image_name
-    print(image_name)
+    print("imagename: " + image_name)
+    successOrFailure = "False"
+    print("CorrectAnswer: " + correctAnswer);
+    if image_name == correctAnswer:
+        successOrFailure = "True"
+    print (successOrFailure)
 
+    image_name = "https://storage.googleapis.com/image_guess_game/" + image_name
     # [END submitted]
     # [START render_template]
-    return render_template('submitted_form.html', imgObject=imgObject, image_name=image_name)
+    return render_template('submitted_form.html', imgObject=imgObject, image_name=image_name, successOrFailure=successOrFailure)
     # [END render_template]
 
 

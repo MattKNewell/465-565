@@ -16,6 +16,8 @@
         <form method="post" action="{{ url_for('submitted_form') }}">
           <label for="site_url">enter 1.jpg 2.jpg or 3.jpg</label>
           <input type="text" name="image_name"><br />
+          <label for="correctAnswer">Correct Answer</label>
+	  <input type="text" value={{correctAnswer}} name="correctAnswer"><br />
           <input type="submit">
         </form>
       </div>
