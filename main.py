@@ -69,7 +69,6 @@ def server_error(e):
 # [END app]
 
 
-
 def run_quickstart(image_name):
     # [START vision_quickstart]
     import io
@@ -106,7 +105,6 @@ def run_quickstart(image_name):
         print(label.description)
      #[END vision_quickstart]
     return labels
-
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080,debug=True)
