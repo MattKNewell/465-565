@@ -9,7 +9,14 @@
 	    <!--<img src="gs://${image_guess_game}/dame.jpg" alt="dame"> -->
 
       <div class="pagetitle">
-	      {{correctImage}}
+	  <table>
+	  {% for Label in correctImage %}
+	    <tr>
+	      <td> {{ Label.description }}</td>
+	      <td> {{ Label.score }}</td>
+	    </tr>
+	  {% endfor %}
+	</table>
         <h1>Submit a form</h1>
       </div>
          <form method="post" action="{{ url_for('submitted_form') }}">
