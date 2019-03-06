@@ -10,13 +10,18 @@
      </div>
 
      <div id="main">
-       <p>Thanks for your submission, !</p>
+       <p>Thanks for your submission !</p>
        <p>Here's a review of the information that you sent:</p>
-       <div style="font-size: 320%"> {{successOrFailure}} </div>
-       <img src={{image_name}} alt="cat">
-       <p>
-          <strong>Label Dectection</strong>: {{imgObject}} <br>
-       </p>
+       <div style="font-size: 320%"> Your guess was {{successOrFailure}}! </div>
+       you guessed <img src={{userGuess}}>
+
+       	<table>
+	  {% for Label in imgObject %}
+	    <tr>
+	      <td> {{ Label.description }}</td>
+	    </tr>
+	  {% endfor %}
+	</table>
      </div>
    </div>
  </body>

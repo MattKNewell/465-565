@@ -7,11 +7,11 @@
     <div id="container">
 	    <!---"gs://${my_bucket}/image.jpg" -->
 
-	    {{correctAnswer}}
+	    correct answer : {{correctAnswer}}
 
       <div class="pagetitle">
 	  <table>
-	  {% for Label in correctImage %}
+	  {% for Label in promptData %}
 	    <tr>
 	      <td> {{ Label.description }}</td>
 	      <td> {{ Label.score }}</td>

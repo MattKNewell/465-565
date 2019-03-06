@@ -37,11 +37,12 @@ def form():
     randomNumber = random.randint(1,1084)
     correctAnswer = str(randomNumber)
     image3 = "https://picsum.photos/200/300?image=" + correctAnswer
-    correctImage = detect_labels_uri("https://picsum.photos/200/300/?random")
+    # this is the data we will prompt the user with so they can made an educated guess
+    promptData = detect_labels_uri("https://picsum.photos/200/300?image=" + correctAnswer)
     #correctImage = run_quickstart(correctAnswer)
     print("Correct answer is: " + correctAnswer)
 
-    return render_template('index.html', correctImage=correctImage, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
+    return render_template('index.html', promptData=promptData, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
 # [END form]
 
 
@@ -49,20 +50,19 @@ def form():
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
     
-    image_name = request.form['image_name']
+    userGuess = request.form['image_name']
     correctAnswer = "https://picsum.photos/200/300?image=" +  request.form['correctAnswer']
-    imgObject = detect_labels_uri(image_name)
-    print("imagename: " + image_name)
-    successOrFailure = "False"
+    imgObject = detect_labels_uri(userGuess)
+    print("userGuess: " + userGuess)
+    successOrFailure = "Wrong"
     print("CorrectAnswer: " + correctAnswer);
-    if image_name == correctAnswer:
-        successOrFailure = "True"
-    print (successOrFailure)
+    if userGuess == correctAnswer:
+        successOrFailure = "Correct"
 
-    image_name = "https://storage.googleapis.com/image_guess_game/" + image_name
+    #userGuess = "https://storage.googleapis.com/image_guess_game/" + userGuess
     # [END submitted]
     # [START render_template]
-    return render_template('submitted_form.html', imgObject=imgObject, image_name=image_name, successOrFailure=successOrFailure)
+    return render_template('submitted_form.html', imgObject=imgObject, userGuess=userGuess, successOrFailure=successOrFailure, correctAnswer=correctAnswer)
     # [END render_template]
 
 
