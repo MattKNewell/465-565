@@ -6,7 +6,8 @@
   <body>
     <div id="container">
 	    <!---"gs://${my_bucket}/image.jpg" -->
-	    <!--<img src="gs://${image_guess_game}/dame.jpg" alt="dame"> -->
+
+	    {{correctAnswer}}
 
       <div class="pagetitle">
 	  <table>
@@ -20,9 +21,9 @@
         <h1>Submit a form</h1>
       </div>
          <form method="post" action="{{ url_for('submitted_form') }}">
-	  <input type="radio" name="image_name" value="1.jpg" checked> <img src={{image1}}><br>
-	  <input type="radio" name="image_name" value="2.jpg"> <img src={{image2}}><br>
-	  <input type="radio" name="image_name" value="3.jpg"> <img src={{image3}}><br>
+		 <input type="radio" name="image_name" value="{{image1}}" checked> <img src={{image1}}><br>
+		 <input type="radio" name="image_name" value="{{image2}}"> <img src={{image2}}><br>
+		 <input type="radio" name="image_name" value="{{image3}}"> <img src={{image3}}><br>
 	  <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
 	 <input type="submit">
     	</form>

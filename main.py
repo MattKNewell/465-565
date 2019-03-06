@@ -28,12 +28,17 @@ app = Flask(__name__)
 @app.route('/')
 def form():
     
-    randomNumber = random.randint(1,3)
-    correctAnswer = str(randomNumber) + ".jpg"
-    image1 = "https://storage.googleapis.com/image_guess_game/1.jpg"
-    image2 = "https://storage.googleapis.com/image_guess_game/2.jpg"
-    image3 = "https://storage.googleapis.com/image_guess_game/3.jpg"
-    correctImage = run_quickstart(correctAnswer)
+    randomNumber = random.randint(1,1084)
+    correctAnswer = str(randomNumber)
+    image1 = "https://picsum.photos/200/300?image=" + correctAnswer
+    randomNumber = random.randint(1,1084)
+    correctAnswer = str(randomNumber)
+    image2 = "https://picsum.photos/200/300?image=" + correctAnswer
+    randomNumber = random.randint(1,1084)
+    correctAnswer = str(randomNumber)
+    image3 = "https://picsum.photos/200/300?image=" + correctAnswer
+    correctImage = detect_labels_uri("https://picsum.photos/200/300/?random")
+    #correctImage = run_quickstart(correctAnswer)
     print("Correct answer is: " + correctAnswer)
 
     return render_template('index.html', correctImage=correctImage, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
@@ -45,8 +50,8 @@ def form():
 def submitted_form():
     
     image_name = request.form['image_name']
-    correctAnswer = request.form['correctAnswer']
-    imgObject = run_quickstart(image_name)
+    correctAnswer = "https://picsum.photos/200/300?image=" +  request.form['correctAnswer']
+    imgObject = detect_labels_uri(image_name)
     print("imagename: " + image_name)
     successOrFailure = "False"
     print("CorrectAnswer: " + correctAnswer);
@@ -100,11 +105,52 @@ def run_quickstart(image_name):
     response = client.label_detection(image=image)
     labels = response.label_annotations
 
-    print('Labels:')
-    for label in labels:
-        print(label.description)
+    #print('Labels:')
+    #for label in labels:
+        #print(label.description)
      #[END vision_quickstart]
     return labels
+
+
+
+def detect_labels_uri(uri):
+    # [START vision_quickstart]
+    import io
+    import os
+
+    # Imports the Google Cloud client library
+    # [START vision_python_migration_import]
+    from google.cloud import vision
+    from google.cloud.vision import types
+    # [END vision_python_migration_import]
+
+    # Instantiates a client
+    # [START vision_python_migration_client]
+    client = vision.ImageAnnotatorClient()
+    # [END vision_python_migration_client]
+
+    # The name of the image file to annotate
+    #file_name = os.path.join(
+        #os.path.dirname(__file__),
+        #"resources/" + image_name)
+    image = vision.types.Image()
+    image.source.image_uri = uri
+    # Loads the image into memory
+    #with io.open(file_name, 'rb') as image_file:
+        #content = image_file.read()
+
+    #image = types.Image(content=content)
+
+    # Performs label detection on the image file
+    response = client.label_detection(image=image)
+    labels = response.label_annotations
+
+    #print('Labels:')
+    #for label in labels:
+        #print(label.description)
+     #[END vision_quickstart]
+    return labels
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080,debug=True)
