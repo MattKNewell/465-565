@@ -36,7 +36,7 @@ def form():
     correctImage = run_quickstart(correctAnswer)
     print("Correct answer is: " + correctAnswer)
 
-    return render_template('index.html', correctImage=correctImage, correctAnswer=correctAnswer)
+    return render_template('index.html', correctImage=correctImage, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
 # [END form]
 
 

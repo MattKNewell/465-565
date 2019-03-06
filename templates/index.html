@@ -13,9 +13,9 @@
         <h1>Submit a form</h1>
       </div>
          <form method="post" action="{{ url_for('submitted_form') }}">
-	  <input type="radio" name="image_name" value="1.jpg" checked> 1<br>
-	  <input type="radio" name="image_name" value="2.jpg"> 2<br>
-	  <input type="radio" name="image_name" value="3.jpg"> 3<br>
+	  <input type="radio" name="image_name" value="1.jpg" checked> <img src={{image1}}><br>
+	  <input type="radio" name="image_name" value="2.jpg"> <img src={{image2}}><br>
+	  <input type="radio" name="image_name" value="3.jpg"> <img src={{image3}}><br>
 	  <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
 	 <input type="submit">
     	</form>
