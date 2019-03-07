@@ -27,22 +27,28 @@ def getRandomNumber():
     randomNumber = random.randint(1,1084)
     return str(randomNumber)
 
+def checkImage():
+    rando1 = getRandomNumber()
+    ranUrl = detect_labels_uri("https://picsum.photos/200/300?image=" + rando1)
+    if not ranUrl:
+      return "0"
+    return str(rando1)
+
 # [START form]
 @app.route('/')
 def form():
-    
-    selection1 = getRandomNumber()
-    selection2 = getRandomNumber()
-    selection3 = getRandomNumber()
-    
-    selectArray = ([selection1, selection2, selection3])
-    
-    randomIndex = random.randint(1,3)
-    correctAnswer = selectArray[randomIndex-1]
-    
+
+    selection1 = checkImage()
+    selection2 = checkImage()
+    selection3 = checkImage()
+
     image1 = "https://picsum.photos/200/300?image=" + selection1
     image2 = "https://picsum.photos/200/300?image=" + selection2
     image3 = "https://picsum.photos/200/300?image=" + selection3
+
+    selectArray = ([selection1, selection2, selection3])
+    randomIndex = random.randint(1,3)
+    correctAnswer = selectArray[randomIndex-1]
 
     # this is the data we will prompt the user with so they can made an educated guess
     promptData = detect_labels_uri("https://picsum.photos/200/300?image=" + correctAnswer)
@@ -54,7 +60,7 @@ def form():
 # [START submitted]
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
-    
+
     userGuess = request.form['image_name']
     correctAnswer = "https://picsum.photos/200/300?image=" +  request.form['correctAnswer']
     imgObject = detect_labels_uri(userGuess)
