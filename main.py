@@ -23,24 +23,29 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 # [END create_app]
 
+def getRandomNumber():
+    randomNumber = random.randint(1,1084)
+    return str(randomNumber)
 
 # [START form]
 @app.route('/')
 def form():
     
-    randomNumber = random.randint(1,1084)
-    correctAnswer = str(randomNumber)
-    image1 = "https://picsum.photos/200/300?image=" + correctAnswer
-    randomNumber = random.randint(1,1084)
-    correctAnswer = str(randomNumber)
-    image2 = "https://picsum.photos/200/300?image=" + correctAnswer
-    randomNumber = random.randint(1,1084)
-    correctAnswer = str(randomNumber)
-    image3 = "https://picsum.photos/200/300?image=" + correctAnswer
+    selection1 = getRandomNumber()
+    selection2 = getRandomNumber()
+    selection3 = getRandomNumber()
+    
+    selectArray = ([selection1, selection2, selection3])
+    
+    randomIndex = random.randint(1,3)
+    correctAnswer = selectArray[randomIndex-1]
+    
+    image1 = "https://picsum.photos/200/300?image=" + selection1
+    image2 = "https://picsum.photos/200/300?image=" + selection2
+    image3 = "https://picsum.photos/200/300?image=" + selection3
+
     # this is the data we will prompt the user with so they can made an educated guess
     promptData = detect_labels_uri("https://picsum.photos/200/300?image=" + correctAnswer)
-    #correctImage = run_quickstart(correctAnswer)
-    print("Correct answer is: " + correctAnswer)
 
     return render_template('index.html', promptData=promptData, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
 # [END form]
