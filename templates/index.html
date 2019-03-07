@@ -21,11 +21,19 @@
         <h1>Which image matches to API descriptions?</h1>
       </div>
          <form method="post" action="{{ url_for('submitted_form') }}">
-		 <input type="radio" name="image_name" value="{{image1}}"> <img src={{image1}}><br>
+		<!-- <input type="radio" name="image_name" value="{{image1}}"> <img src={{image1}}><br>
 		 <input type="radio" name="image_name" value="{{image2}}"> <img src={{image2}}><br>
-		 <input type="radio" name="image_name" value="{{image3}}"> <img src={{image3}}><br>
-	  <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
-	 <input type="submit">
+		 <input type="radio" name="image_name" value="{{image3}}"> <img src={{image3}}><br> -->
+		 <input type="submit" name="image_name" value="{{image1}}" style="background:url( {{image1}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 <input type="submit" name="image_name" value="{{image2}}" style="background:url( {{image2}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 <input type="submit" name="image_name" value="{{image3}}" style="background:url( {{image3}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 
+		<!-- <input type="image" name="image_name" value={{image1}} src="{{image1}}" alt="Submit Form" />
+		 <input type="image" name="image_name" value={{image2}} src="{{image2}}" alt="Submit Form" />
+		 <input type="image" name="image_name" value={{image3}} src="{{image3}}" alt="Submit Form" /> -->
+
+	  	 <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
+		 <!--<input type="submit"> -->
     	</form>
     </div>
   </body>
