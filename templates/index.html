@@ -2,12 +2,16 @@
   <head>
     <title>Submit a form</title>
    <link rel="stylesheet" type="text/css" href="/static/style.css">
-  </head>
+   
+       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    
+</head>
   <body>
     <div id="container">
 	    <!---"gs://${my_bucket}/image.jpg" -->
 
-	    correct answer : {{correctAnswer}}
+	    <!---correct answer : {{correctAnswer}}-->
 
       <div class="pagetitle">
 	  <table>
@@ -19,14 +23,14 @@
 	  {% endfor %}
 	</table>
         <h1>Which image matches to API descriptions?</h1>
-      </div>
-         <form method="post" action="{{ url_for('submitted_form') }}">
-		<!-- <input type="radio" name="image_name" value="{{image1}}"> <img src={{image1}}><br>
+   </div>
+     <form method="post" action="{{ url_for('submitted_form') }}">
+		 <!-- <input type="radio" name="image_name" value="{{image1}}"> <img src={{image1}}><br>
 		 <input type="radio" name="image_name" value="{{image2}}"> <img src={{image2}}><br>
 		 <input type="radio" name="image_name" value="{{image3}}"> <img src={{image3}}><br> -->
-		 <input type="submit" name="image_name" value="{{image1}}" style="background:url( {{image1}} ) no-repeat;height:300;width:200;color: transparent;" />
-		 <input type="submit" name="image_name" value="{{image2}}" style="background:url( {{image2}} ) no-repeat;height:300;width:200;color: transparent;" />
-		 <input type="submit" name="image_name" value="{{image3}}" style="background:url( {{image3}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 <input type="submit" class="d-inline form-control" name="image_name" value="{{image1}}" style="background:url( {{image1}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 <input type="submit" class="d-inline form-control" name="image_name" value="{{image2}}" style="background:url( {{image2}} ) no-repeat;height:300;width:200;color: transparent;" />
+		 <input type="submit" class="d-inline form-control" name="image_name" value="{{image3}}" style="background:url( {{image3}} ) no-repeat;height:300;width:200;color: transparent;" />
 		 
 		<!-- <input type="image" name="image_name" value={{image1}} src="{{image1}}" alt="Submit Form" />
 		 <input type="image" name="image_name" value={{image2}} src="{{image2}}" alt="Submit Form" />
