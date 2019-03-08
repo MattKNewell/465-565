@@ -1,0 +1,76 @@
+<html>
+  <head>
+		<title>Submit a form</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- <script type="text/javascript" src="/static/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/style.css"> -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		
+    
+	</head>
+    <body>
+    <div id="container-fluid">
+
+
+<div class="card" style="width: 18rem;">
+    <img src={{hotdogurl}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{YesOrNo}}</h5>
+      <p class="card-text">
+
+        <ul id="myList">
+			{% if promptData[0] is defined %}
+				<li>{{ promptData[0].description }}</li>
+			{% endif %}
+			{% if promptData[1] is defined %}
+				<li>{{ promptData[1].description }}</li>
+			{% endif %}
+			{% if promptData[2] is defined %}
+				<li>{{ promptData[2].description }}</li>
+			{% endif %}
+			{% if promptData[3] is defined %}
+				<li>{{ promptData[3].description }}</li>
+			{% endif %}
+			{% if promptData[4] is defined %}
+				<li>{{ promptData[4].description }}</li>
+			{% endif %}
+			{% if promptData[5] is defined %}
+				<li>{{ promptData[5].description }}</li>
+			{% endif %}
+			{% if promptData[6] is defined %}
+				<li>{{ promptData[6].description }}</li>
+			{% endif %}
+			{% if promptData[7] is defined %}
+				<li>{{ promptData[7].description }}</li>
+			{% endif %}
+			{% if promptData[8] is defined %}
+				<li>{{ promptData[8].description }}</li>
+			{% endif %}
+			{% if promptData[9] is defined %}
+				<li>{{ promptData[9].description }}</li>
+			{% endif %}
+			{% if promptData[10] is defined %}
+				<li>{{ promptData[10].description }}</li>
+			{% endif %}
+			{% if promptData[11] is defined %}
+				<li>{{ promptData[11].description }}</li>
+			{% endif %}
+			{% if promptData[12] is defined %}
+				<li>{{ promptData[12].description }}</li>
+			{% endif %}
+			{% if promptData[13] is defined %}
+				<li>{{ promptData[13].description }}</li>
+			{% endif %}
+			{% if promptData[14] is defined %}
+				<li>{{ promptData[14].description }}</li>
+			{% endif %}
+	</ul>
+
+      </p>
+      <a href="/" class="btn btn-primary">Another Hot dog?</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

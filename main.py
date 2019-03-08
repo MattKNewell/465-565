@@ -34,9 +34,25 @@ def checkImage():
       return "0"
     return str(rando1)
 
-# [START form]
+# [START Routes ]
 @app.route('/')
-def form():
+def home():
+    return render_template('index.html')
+
+@app.route('/hotdog', methods=['POST'])
+def hotdog():
+    hotdogurl = request.form['hotdog']
+    promptData = detect_labels_uri(hotdogurl)
+    print(promptData)
+    YesOrNo = "Nope"
+    for Label in promptData:
+        if("dog" in Label.description):
+            print("YES")
+            YesOrNo = "YES"
+    return render_template('hotdog.html', YesOrNo=YesOrNo, promptData=promptData, hotdogurl=hotdogurl)
+
+@app.route('/game')
+def game():
 
     selection1 = checkImage()
     selection2 = checkImage()
@@ -78,7 +94,7 @@ def form():
     # this is the data we will prompt the user with so they can made an educated guess
     promptData = detect_labels_uri("https://picsum.photos/800/800?image=" + correctAnswer)
  
-    return render_template('index.html', promptData=promptData, correctAnswer=correctAnswer, images=images)
+    return render_template('game.html', promptData=promptData, correctAnswer=correctAnswer, images=images)
 # [END form]
 
 

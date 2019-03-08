@@ -20,13 +20,9 @@ Click Create Credentials then Service Key Account
 This should start downloading a json file which is your service key account.
 
 To run this locally:
-#### Let google know where you key is held.
-1. `export GOOGLE_APPLICATION_CREDENTIALS=key.json`
 #### Set up your loval environment
-2. `virtualenv env; source env/bin/activate; pip install -r requirements.txt`
+1. `virtualenv env; source env/bin/activate; pip install -r requirements.txt`
+#### Let google know where you key is held.
+2. `export GOOGLE_APPLICATION_CREDENTIALS=key.json`
 #### Run the app!
 3. `python main.py`
-
-#### ps
-I have found that I need to run `python main.py collectstatic --noinput --clear .`
-in order to refresh the static files
