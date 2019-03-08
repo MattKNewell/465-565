@@ -62,7 +62,7 @@ def form():
 def submitted_form():
 
     userGuess = request.form['image_name']
-    correctAnswer = "https://picsum.photos/200/300?image=" +  request.form['correctAnswer']
+    correctAnswer = "https://picsum.photos/800/800?image=" +  request.form['correctAnswer']
     imgObject = detect_labels_uri(userGuess)
     print("userGuess: " + userGuess)
     successOrFailure = "Wrong"
