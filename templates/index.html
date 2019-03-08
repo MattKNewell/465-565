@@ -1,43 +1,123 @@
 <html>
   <head>
-    <title>Submit a form</title>
-   <link rel="stylesheet" type="text/css" href="/static/style.css">
-   
-       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<title>Submit a form</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		
     
-</head>
+	</head>
   <body>
-    <div id="container">
-	    <!---"gs://${my_bucket}/image.jpg" -->
+    <div id="container-fluid">
+			<h1>One Image matches the descriptions</h1>
+			<button type="button" id="loadMore" class="btn btn-primary">Load More Descriptions</button>
 
-	    <!---correct answer : {{correctAnswer}}-->
+	 <ul id="myList">
+			{% if promptData[0] is defined %}
+				<li>{{ promptData[0].description }}</li>
+			{% endif %}
+			{% if promptData[1] is defined %}
+				<li>{{ promptData[1].description }}</li>
+			{% endif %}
+			{% if promptData[2] is defined %}
+				<li>{{ promptData[2].description }}</li>
+			{% endif %}
+			{% if promptData[3] is defined %}
+				<li>{{ promptData[3].description }}</li>
+			{% endif %}
+			{% if promptData[4] is defined %}
+				<li>{{ promptData[4].description }}</li>
+			{% endif %}
+			{% if promptData[5] is defined %}
+				<li>{{ promptData[5].description }}</li>
+			{% endif %}
+			{% if promptData[6] is defined %}
+				<li>{{ promptData[6].description }}</li>
+			{% endif %}
+			{% if promptData[7] is defined %}
+				<li>{{ promptData[7].description }}</li>
+			{% endif %}
+			{% if promptData[8] is defined %}
+				<li>{{ promptData[8].description }}</li>
+			{% endif %}
+			{% if promptData[9] is defined %}
+				<li>{{ promptData[9].description }}</li>
+			{% endif %}
+			{% if promptData[10] is defined %}
+				<li>{{ promptData[10].description }}</li>
+			{% endif %}
+			{% if promptData[11] is defined %}
+				<li>{{ promptData[11].description }}</li>
+			{% endif %}
+			{% if promptData[12] is defined %}
+				<li>{{ promptData[12].description }}</li>
+			{% endif %}
+			{% if promptData[13] is defined %}
+				<li>{{ promptData[13].description }}</li>
+			{% endif %}
+			{% if promptData[14] is defined %}
+				<li>{{ promptData[14].description }}</li>
+			{% endif %}
+	</ul>
 
-      <div class="pagetitle">
-		<table class="table">
-			<th scope="col">description</th>
-			<th scope="col">Confidence</th>
-	  {% for Label in promptData %}
-	    <tr>
-	      <td> {{ Label.description }}</td>
-	      <td> {{ Label.score }}</td>
-	    </tr>
-	  {% endfor %}
-	</table>
-	
-        <h1>Which image matches to API descriptions?</h1>
-   </div>
+
      <form method="post" action="{{ url_for('submitted_form') }}">
 
 		 <div class="row">
 				<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{image1}}"><img src={{image1}} class="img-fluid"></button>
+				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[0]}}"><img src={{images[0]}} class="img-fluid"></button>
 				</div>
 				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{image2}}"><img src={{image2}} class="img-fluid"></button>
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[1]}}"><img src={{images[1]}} class="img-fluid"></button>
 				</div>
 				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{image3}}"><img src={{image3}} class="img-fluid"></button>
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[2]}}"><img src={{images[2]}} class="img-fluid"></button>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[3]}}"><img src={{images[3]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[4]}}"><img src={{images[4]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[5]}}"><img src={{images[5]}} class="img-fluid"></button>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[6]}}"><img src={{images[6]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[7]}}"><img src={{images[7]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[8]}}"><img src={{images[8]}} class="img-fluid"></button>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[9]}}"><img src={{images[9]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[10]}}"><img src={{images[10]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[11]}}"><img src={{images[11]}} class="img-fluid"></button>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[12]}}"><img src={{images[12]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[13]}}"><img src={{images[13]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[14]}}"><img src={{images[14]}} class="img-fluid"></button>
 					</div>
 			</div>
 	   <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
