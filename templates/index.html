@@ -14,7 +14,9 @@
 	    <!---correct answer : {{correctAnswer}}-->
 
       <div class="pagetitle">
-	  <table>
+		<table class="table">
+			<th scope="col">description</th>
+			<th scope="col">Confidence</th>
 	  {% for Label in promptData %}
 	    <tr>
 	      <td> {{ Label.description }}</td>
@@ -22,6 +24,7 @@
 	    </tr>
 	  {% endfor %}
 	</table>
+	
         <h1>Which image matches to API descriptions?</h1>
    </div>
      <form method="post" action="{{ url_for('submitted_form') }}">
