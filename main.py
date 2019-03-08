@@ -41,19 +41,44 @@ def form():
     selection1 = checkImage()
     selection2 = checkImage()
     selection3 = checkImage()
+    selection4 = checkImage()
+    selection5 = checkImage()
+    selection6 = checkImage()
+    selection7 = checkImage()
+    selection8 = checkImage()
+    selection9 = checkImage()
+    selection10 = checkImage()
+    selection11 = checkImage()
+    selection12 = checkImage()
+    selection13 = checkImage()
+    selection14 = checkImage()
+    selection15 = checkImage()
 
     image1 = "https://picsum.photos/800/800?image=" + selection1
     image2 = "https://picsum.photos/800/800?image=" + selection2
     image3 = "https://picsum.photos/800/800?image=" + selection3
+    image4 = "https://picsum.photos/800/800?image=" + selection4
+    image5 = "https://picsum.photos/800/800?image=" + selection5
+    image6 = "https://picsum.photos/800/800?image=" + selection6
+    image7 = "https://picsum.photos/800/800?image=" + selection7
+    image8 = "https://picsum.photos/800/800?image=" + selection8
+    image9 = "https://picsum.photos/800/800?image=" + selection9
+    image10 = "https://picsum.photos/800/800?image=" + selection10
+    image11 = "https://picsum.photos/800/800?image=" + selection11
+    image12 = "https://picsum.photos/800/800?image=" + selection12
+    image13 = "https://picsum.photos/800/800?image=" + selection13
+    image14 = "https://picsum.photos/800/800?image=" + selection14
+    image15 = "https://picsum.photos/800/800?image=" + selection15
 
-    selectArray = ([selection1, selection2, selection3])
-    randomIndex = random.randint(1,3)
+    images = ([image1, image2, image3, image4, image5, image6,image7,image8,image9,image10,image11,image12,image13,image14,image15])
+    selectArray = ([selection1, selection2, selection3, selection4, selection5, selection6,selection7, selection8, selection9,selection10, selection11, selection12,selection13, selection14, selection15])
+    randomIndex = random.randint(1,15)
     correctAnswer = selectArray[randomIndex-1]
 
     # this is the data we will prompt the user with so they can made an educated guess
     promptData = detect_labels_uri("https://picsum.photos/800/800?image=" + correctAnswer)
-
-    return render_template('index.html', promptData=promptData, correctAnswer=correctAnswer, image1=image1, image2=image2, image3=image3)
+ 
+    return render_template('index.html', promptData=promptData, correctAnswer=correctAnswer, images=images)
 # [END form]
 
 
