@@ -24,5 +24,5 @@ To run this locally:
 1. `export GOOGLE_APPLICATION_CREDENTIALS=key.json`
 #### Set up your loval environment
 2. `virtualenv env; source env/bin/activate; pip install -r requirements.txt`
-####Run the app!
+#### Run the app!
 3. `python main.py`
