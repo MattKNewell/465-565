@@ -26,3 +26,7 @@ To run this locally:
 2. `virtualenv env; source env/bin/activate; pip install -r requirements.txt`
 #### Run the app!
 3. `python main.py`
+
+#### ps
+I have found that I need to run `python main.py collectstatic --noinput --clear .`
+in order to refresh the static files
