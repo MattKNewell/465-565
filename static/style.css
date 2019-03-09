@@ -4,3 +4,14 @@
 .pagetitle {
     color: #800080;
 }
+
+#organizer {
+    margin: 100;
+    /* background: coral; */
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    /* right: 50%; */
+    /* margin-right: -50%; */
+    /* transform: translate(-50%, -50%)  */
+}

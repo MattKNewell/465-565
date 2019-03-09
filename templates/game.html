@@ -1,19 +1,34 @@
 <html>
   <head>
-		<title>Submit a form</title>
+		<title>Image Guesser</title>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/static/scripts.js"></script>
 		<link rel="stylesheet" type="text/css" href="/static/style.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-		
-    
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<!-- <script>
+				$( function() {
+				  $( "#progressbar" ).progressbar({
+					value: percentComplete
+				  });
+				} );
+				</script> -->
 	</head>
   <body>
+		
+			  </head>
+			  <body>
+			   
+			  <!-- <div id="progressbar"></div> -->
     <div id="container-fluid">
+			<div id="organizer">
 			<h1>One Image matches the descriptions</h1>
 			<button type="button" id="loadMore" class="btn btn-primary">Load More Descriptions</button>
-
+			</div>
 	 <ul id="myList">
 			{% if promptData[0] is defined %}
 				<li>{{ promptData[0].description }}</li>
@@ -75,8 +90,8 @@
 				<div class="col-sm">
 						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[2]}}"><img src={{images[2]}} class="img-fluid"></button>
 					</div>
-			</div>
-			<div class="row">
+		</div>
+		<div class="row">
 				<div class="col-sm">
 				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[3]}}"><img src={{images[3]}} class="img-fluid"></button>
 				</div>
@@ -86,8 +101,8 @@
 				<div class="col-sm">
 						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[5]}}"><img src={{images[5]}} class="img-fluid"></button>
 					</div>
-			</div>
-			<div class="row">
+		</div>
+		<div class="row">
 				<div class="col-sm">
 				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[6]}}"><img src={{images[6]}} class="img-fluid"></button>
 				</div>
@@ -97,29 +112,7 @@
 				<div class="col-sm">
 						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[8]}}"><img src={{images[8]}} class="img-fluid"></button>
 					</div>
-			</div>
-			<div class="row">
-				<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[9]}}"><img src={{images[9]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[10]}}"><img src={{images[10]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[11]}}"><img src={{images[11]}} class="img-fluid"></button>
-					</div>
-			</div>
-			<div class="row">
-				<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[12]}}"><img src={{images[12]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[13]}}"><img src={{images[13]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[14]}}"><img src={{images[14]}} class="img-fluid"></button>
-					</div>
-			</div>
+		</div>
 	   <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
 		 <!--<input type="submit"> -->
     	</form>

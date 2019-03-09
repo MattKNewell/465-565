@@ -1,25 +1,36 @@
 <html>
   <head>
-		<title>Submit a form</title>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Home | Links</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> -->
 		<script type="text/javascript" src="/static/scripts.js"></script>
-		<link rel="stylesheet" type="text/css" href="/static/style.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-		
-    
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
 	</head>
     <body>
-    <div id="container-fluid">
-    
-    <a href="/game">PLAY GAME</a> <br>
-
-    <form method="post" action="{{ url_for('hotdog') }}">
-        <label for="site_url">enter a link to a hotdog pic</label>
-        <input type="text" name="hotdog"><br />
-        
-        <input type="submit">
-      </form>
-    </div>
+          </head>
+          <body>
+           
+      <!-- <div id="progressbar"></div> -->
+      <div id="container-fluid">
+        <div id="organizer">
+          <a href="/game" type="button" class="btn btn-primary" >PLAY IMAGE GUESSING GAME</a> <br><br>
+          <a href="/taggame" type="button" class="btn btn-primary" >PLAY IMAGE TAGGIN GAME</a> <br>
+          <hr>
+          <form class="form-group" method="post" action="{{ url_for('hotdog') }}">
+            <div class="form-group">
+              <label for="site_url">Is this image a hot dog?</label>
+              <input type="text" name="hotdog"><br />
+            </div>
+              <input type="submit" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
     </body>
 </html>

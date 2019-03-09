@@ -1,0 +1,48 @@
+<html>
+  <head>
+		<title>Taggin Game</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <!-- <script>
+            
+            $( document ).ready(function() {
+                console.log( "ready!" );
+                userTag = document.getElementById("userTag").value;
+                $("#myButton").click(function(){
+                    $("#submitted").append("<p>" + userTag + "</p>");
+                });
+            });
+            
+        </script> -->
+	</head>
+  <body>
+    <div id="container-fluid">
+            <form class="form-group" method="post" action="{{ url_for('tagging') }}">
+                    <div class="form-group">
+                        <label for="site_url">Tag the image</label>
+                        <input type="text" id="userTag" name="usertag"><br />
+                        <input type="text" id="correctTag" name="correct" hidden value="{{imageToTag}}">
+                    </div>
+                    <input type="submit" id="myButton" class="btn btn-primary" value="submit">
+            </form>
+            
+
+            <hr>
+            Image <img src={{imageToTag}} >
+            <hr>
+            you submitted {{usertag}}
+            <div id="submitted"></div>
+
+
+            
+    </div>
+  </body>
+</html>
