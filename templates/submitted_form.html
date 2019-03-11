@@ -1,28 +1,94 @@
 <html>
- <head>
-   <title>Submitted form</title>
-   <link rel="stylesheet" type="text/css" href="/static/style.css">
- </head>
- <body>
-   <div id="container">
-     <div class="pagetitle">
-       <h1>Form submitted</h1>
-     </div>
+  <head>
+		<title>HotDog</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- <script type="text/javascript" src="/static/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">-->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	</head>
+  
+  <body>
+    <div id="container-fluid">
+			<div id="submitted">
 
-     <div id="main">
-       <p>Thanks for your submission !</p>
-       <p>Here's a review of the information that you sent:</p>
-       <div style="font-size: 320%"> Your guess was {{successOrFailure}}! </div>
-       you guessed <img src={{userGuess}}>
 
-       	<table>
-          {% for Label in imgObject %}
-            <tr>
-              <td> {{ Label.description }}</td>
-            </tr>
-          {% endfor %}
-        </table>
-     </div>
-   </div>
- </body>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+<div class="card" style="width: 18rem;">
+    <img src={{userGuess}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{successOrFailure}}</h5>
+      <p class="card-text">
+
+        <ul>
+			{% if imgObject[0] is defined %}
+				<li>{{ imgObject[0].description }}</li>
+			{% endif %}
+			{% if imgObject[1] is defined %}
+				<li>{{ imgObject[1].description }}</li>
+			{% endif %}
+			{% if imgObject[2] is defined %}
+				<li>{{ imgObject[2].description }}</li>
+			{% endif %}
+			{% if imgObject[3] is defined %}
+				<li>{{ imgObject[3].description }}</li>
+			{% endif %}
+			{% if imgObject[4] is defined %}
+				<li>{{ imgObject[4].description }}</li>
+			{% endif %}
+			{% if imgObject[5] is defined %}
+				<li>{{ imgObject[5].description }}</li>
+			{% endif %}
+			{% if imgObject[6] is defined %}
+				<li>{{ imgObject[6].description }}</li>
+			{% endif %}
+			{% if imgObject[7] is defined %}
+				<li>{{ imgObject[7].description }}</li>
+			{% endif %}
+			{% if imgObject[8] is defined %}
+				<li>{{ imgObject[8].description }}</li>
+			{% endif %}
+			{% if imgObject[9] is defined %}
+				<li>{{ imgObject[9].description }}</li>
+			{% endif %}
+			{% if imgObject[10] is defined %}
+				<li>{{ imgObject[10].description }}</li>
+			{% endif %}
+			{% if imgObject[11] is defined %}
+				<li>{{ imgObject[11].description }}</li>
+			{% endif %}
+			{% if imgObject[12] is defined %}
+				<li>{{ imgObject[12].description }}</li>
+			{% endif %}
+			{% if imgObject[13] is defined %}
+				<li>{{ imgObject[13].description }}</li>
+			{% endif %}
+			{% if imgObject[14] is defined %}
+				<li>{{ imgObject[14].description }}</li>
+			{% endif %}
+	</ul>
+
+      </p>
+      <a href="/" class="btn btn-primary">Another Hot dog?</a>
+    </div>
+	</div>
+
+
+
+</div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+
+
+
+
+			</div>
+</div>
+</body>
 </html>
