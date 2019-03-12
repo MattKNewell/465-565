@@ -48,52 +48,28 @@ def tagging():
 @app.route('/')
 def game():
 
-    selection1 = getRandomNumber()
-    selection2 = getRandomNumber()
-    selection3 = getRandomNumber()
-    selection4 = getRandomNumber()
-    selection5 = getRandomNumber()
-    selection6 = getRandomNumber()
-    selection7 = getRandomNumber()
-    selection8 = getRandomNumber()
-    selection9 = getRandomNumber()
-    selection10 = getRandomNumber()
-    selection11 = getRandomNumber()
-    selection12 = getRandomNumber()
 
-    #TODO Make selections unqiue
+    selectArray = getRandomNumber()
 
-    selectArray = ([selection1, selection2, selection3, selection4, selection5, selection6,selection7, selection8, selection9,selection10,selection11,selection12])
-
-    image1 = "static/images/" + selection1 + ".jpg"
-    image2 = "static/images/" + selection2 + ".jpg"
-    image3 = "static/images/" + selection3 + ".jpg"
-    image4 = "static/images/" + selection4 + ".jpg"
-    image5 = "static/images/" + selection5 + ".jpg"
-    image6 = "static/images/" + selection6 + ".jpg"
-    image7 = "static/images/" + selection7 + ".jpg"
-    image8 = "static/images/" + selection8 + ".jpg"
-    image9 = "static/images/" + selection9 + ".jpg"
-    image10 = "static/images/" + selection10 + ".jpg"
-    image11= "static/images/" + selection11 + ".jpg"
-    image12 = "static/images/" + selection12 + ".jpg"
-
-    # checkimage(image1)
-    # checkimage(image2)
-    # checkimage(image3)
-    # checkimage(image4)
-    # checkimage(image5)
-    # checkimage(image6)
-    # checkimage(image7)
-    # checkimage(image8)
-    # checkimage(image9)
+    image1 = "static/images/" + str(selectArray[0]) + ".jpg"
+    image2 = "static/images/" + str(selectArray[1]) + ".jpg"
+    image3 = "static/images/" + str(selectArray[2]) + ".jpg"
+    image4 = "static/images/" + str(selectArray[3]) + ".jpg"
+    image5 = "static/images/" + str(selectArray[4]) + ".jpg"
+    image6 = "static/images/" + str(selectArray[5]) + ".jpg"
+    image7 = "static/images/" + str(selectArray[6]) + ".jpg"
+    image8 = "static/images/" + str(selectArray[7]) + ".jpg"
+    image9 = "static/images/" + str(selectArray[8]) + ".jpg"
+    image10 = "static/images/" + str(selectArray[9]) + ".jpg"
+    image11= "static/images/" + str(selectArray[10]) + ".jpg"
+    image12 = "static/images/" + str(selectArray[11]) + ".jpg"
 
     images = ([image1, image2, image3, image4, image5, image6,image7,image8,image9,image10,image11,image12])
     randomIndex = random.randint(1,12)
     correctAnswer = selectArray[randomIndex-1]
 
     # this is the data we will prompt the user with so they can made an educated guess
-    promptData = run_quickstart("static/images/" + correctAnswer + ".jpg")
+    promptData = run_quickstart("static/images/" + str(correctAnswer) + ".jpg")
     #I should try to gert a secret working in order to make one less api call
     # session['my_var'] = promptData
     return render_template('game.html', promptData=promptData, correctAnswer=correctAnswer, images=images)
@@ -184,8 +160,10 @@ def detect_labels_uri(uri):
     return labels
 
 def getRandomNumber():
-    randomNumber = random.randint(1,906)
-    return str(randomNumber)
+   # randomNumber = random.randint(1,906)
+   #return str(randomNumber)
+   return random.sample(range(1, 907), 12)
+
 
 # by using the api function call we create more api calls than needed
 def checkImage():
@@ -201,8 +179,6 @@ def checkimage(image):
     if not ranUrl:
       return checkimage()
     return str(rando1)
-
-
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080,debug=True)
