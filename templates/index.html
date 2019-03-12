@@ -1,31 +1,17 @@
-<html>
-  <head>
-    <title>Home | Links</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> -->
-		<script type="text/javascript" src="/static/scripts.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
-	</head>
-  <body>
-      {% include "header.html" %}
-      <!-- <div id="progressbar"></div> -->
-      <div id="container-fluid">
-        <div id="organizer">
+<!-- ... header has the header -->
 
-          <form class="form-group" method="post" action="{{ url_for('hotdog') }}">
-            <div class="form-group">
-              <label for="site_url">Is this image a hot dog?</label>
-              <input type="text" name="hotdog"><br />
+                {% include "header.html" %}
+
+                <p>This project was done at Portland state University for cs465p</p>
+
+                <p>Time expectation: 6-12 hrs/week/person - 3 weeks</p>
+
+                <p>Any web application that you want to build, using some sort of API (google maps, weather, twitter, yelp, etc) for the data.</p>
+
+                <p>Front-end application for undergrads and full-stack application for grad students (client and server, no database required).</p>
+                
+                <p>Work in teams of two and use GitHub. At least 10 GitHub submissions for this project.</p>
             </div>
-              <input type="submit" class="btn btn-primary">
-          </form>
         </div>
-      </div>
     </body>
 </html>

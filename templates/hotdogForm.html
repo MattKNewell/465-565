@@ -1,0 +1,18 @@
+<!-- ... header has the header -->
+
+      {% include "header.html" %}
+      <!-- <div id="progressbar"></div> -->
+
+        <div id="organizer">
+
+          <form class="form-group" method="post" action="{{ url_for('hotdog') }}">
+            <div class="form-group">
+              <label for="site_url">Is this image a hot dog?</label>
+              <input type="url" name="hotdog" class="form-control" placeholder="https://example.com"><br />
+            </div>
+              <input type="submit" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </body>
+</html>

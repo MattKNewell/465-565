@@ -11,9 +11,13 @@ app = Flask(__name__)
 
 
 # [START Routes ]
-@app.route('/links')
+@app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/links')
+def hotdogForm():
+    return render_template('hotdogForm.html')
 
 @app.route('/hotdog', methods=['POST'])
 def hotdog():
@@ -23,7 +27,6 @@ def hotdog():
     YesOrNo = "Nope"
     for Label in promptData:
         if("dog" in Label.description):
-            print("YES")
             YesOrNo = "YES"
     return render_template('hotdog.html', YesOrNo=YesOrNo, promptData=promptData, hotdogurl=hotdogurl)
 
@@ -42,7 +45,7 @@ def tagging():
 
     return render_template('tagResult.html', userInput=userInput, lastImage=lastImage, promptData=promptData)
 
-@app.route('/')
+@app.route('/game')
 def game():
 
     selection1 = checkImage()
