@@ -184,7 +184,7 @@ def detect_labels_uri(uri):
     return labels
 
 def getRandomNumber():
-    randomNumber = random.randint(0,906)
+    randomNumber = random.randint(1,906)
     return str(randomNumber)
 
 # by using the api function call we create more api calls than needed
