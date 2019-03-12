@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('#myList li:lt(1)').show();
   $('#loadMore').click(function () {
     num++;
-    $('#myList li:lt(' + num + ')').show();
+    $('#myList li:lt(' + num + ')').css('display', 'inline-block');
   });
 
   // $.ajax({

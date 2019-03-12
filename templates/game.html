@@ -3,56 +3,57 @@
 		{% include "header.html" %}
 
 			<h1>One Image matches the descriptions</h1>
-			<button type="button" id="loadMore" class="btn btn-primary">Load More Descriptions</button>
+			<button type="button" id="loadMore" class="btn btn-info">Load More Descriptions</button>
 			</div>
-	 <ul id="myList">
+
+
+  <ul id="myList">
 			{% if promptData[0] is defined %}
-				<li>{{ promptData[0].description }}</li>
+				<li>1. {{ promptData[0].description }}</li>
 			{% endif %}
 			{% if promptData[1] is defined %}
-				<li>{{ promptData[1].description }}</li>
+				<li>2. {{ promptData[1].description }}</li>
 			{% endif %}
 			{% if promptData[2] is defined %}
-				<li>{{ promptData[2].description }}</li>
+				<li>3. {{ promptData[2].description }}</li>
 			{% endif %}
 			{% if promptData[3] is defined %}
-				<li>{{ promptData[3].description }}</li>
+				<li>4. {{ promptData[3].description }}</li>
 			{% endif %}
 			{% if promptData[4] is defined %}
-				<li>{{ promptData[4].description }}</li>
+				<li>5. {{ promptData[4].description }}</li>
 			{% endif %}
 			{% if promptData[5] is defined %}
-				<li>{{ promptData[5].description }}</li>
+				<li>6. {{ promptData[5].description }}</li>
 			{% endif %}
 			{% if promptData[6] is defined %}
-				<li>{{ promptData[6].description }}</li>
+				<li>7. {{ promptData[6].description }}</li>
 			{% endif %}
 			{% if promptData[7] is defined %}
-				<li>{{ promptData[7].description }}</li>
+				<li>8. {{ promptData[7].description }}</li>
 			{% endif %}
 			{% if promptData[8] is defined %}
-				<li>{{ promptData[8].description }}</li>
+				<li>9. {{ promptData[8].description }}</li>
 			{% endif %}
 			{% if promptData[9] is defined %}
-				<li>{{ promptData[9].description }}</li>
+				<li>10. {{ promptData[9].description }}</li>
 			{% endif %}
 			{% if promptData[10] is defined %}
-				<li>{{ promptData[10].description }}</li>
+				<li>11. {{ promptData[10].description }}</li>
 			{% endif %}
 			{% if promptData[11] is defined %}
-				<li>{{ promptData[11].description }}</li>
+				<li>12. {{ promptData[11].description }}</li>
 			{% endif %}
 			{% if promptData[12] is defined %}
-				<li>{{ promptData[12].description }}</li>
+				<li>13. {{ promptData[12].description }}</li>
 			{% endif %}
 			{% if promptData[13] is defined %}
-				<li>{{ promptData[13].description }}</li>
+				<li>14. {{ promptData[13].description }}</li>
 			{% endif %}
 			{% if promptData[14] is defined %}
-				<li>{{ promptData[14].description }}</li>
+				<li>15 {{ promptData[14].description }}</li>
 			{% endif %}
 	</ul>
-
 
      <form method="post" action="{{ url_for('submitted_form') }}">
 		<input hidden type="text"  name="label_data" value="{{promptData}}"></input>

@@ -1,4 +1,5 @@
 #myList li{ display:none;
+
 }
 
 .pagetitle {
@@ -20,6 +21,13 @@ img {
     height:200;
 }
 
-.btn {
-    margin-bottom:10%;
+
+.row{
+    margin-bottom:5%;
+}
+
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:#e3f2fd !important;
 }
