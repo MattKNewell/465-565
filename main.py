@@ -19,7 +19,7 @@ def home():
 def hotdog():
     hotdogurl = request.form['hotdog']
     promptData = detect_labels_uri(hotdogurl)
-    print(promptData)
+    # print(promptData)
     YesOrNo = "Nope"
     for Label in promptData:
         if("dog" in Label.description):
@@ -38,7 +38,7 @@ def tagging():
     userInput = request.form['usertag']
     lastImage = request.form['correct']
     promptData = detect_labels_uri(lastImage)
-    print(userInput + " " + lastImage)
+    # print(userInput + " " + lastImage)
 
     return render_template('tagResult.html', userInput=userInput, lastImage=lastImage, promptData=promptData)
 
@@ -85,9 +85,9 @@ def submitted_form():
     userGuess = request.form['image_name']
     correctAnswer = "https://picsum.photos/400/400?image=" +  request.form['correctAnswer']
     imgObject = detect_labels_uri(userGuess)
-    print("userGuess: " + userGuess)
+    # print("userGuess: " + userGuess)
     successOrFailure = "Wrong"
-    print("CorrectAnswer: " + correctAnswer);
+    # print("CorrectAnswer: " + correctAnswer);
     if userGuess == correctAnswer:
         successOrFailure = "Correct"
 

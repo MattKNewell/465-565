@@ -11,19 +11,10 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <!-- <script>
-            
-            $( document ).ready(function() {
-                console.log( "ready!" );
-                userTag = document.getElementById("userTag").value;
-                $("#myButton").click(function(){
-                    $("#submitted").append("<p>" + userTag + "</p>");
-                });
-            });
-            
-        </script> -->
+  
 	</head>
   <body>
+      {% include "header.html" %}
     <div id="container-fluid">
             <form class="form-group" method="post" action="{{ url_for('tagging') }}">
                     <div class="form-group">
