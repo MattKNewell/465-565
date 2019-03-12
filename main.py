@@ -52,30 +52,30 @@ def game():
     selection2 = checkImage()
     selection3 = checkImage()
     selection4 = checkImage()
-    selection5 = checkImage()
-    selection6 = checkImage()
-    selection7 = checkImage()
-    selection8 = checkImage()
-    selection9 = checkImage()
+    # selection5 = checkImage()
+    # selection6 = checkImage()
+    # selection7 = checkImage()
+    # selection8 = checkImage()
+    # selection9 = checkImage()
 
-    selectArray = ([selection1, selection2, selection3, selection4, selection5, selection6,selection7, selection8, selection9])
+    selectArray = ([selection1, selection2, selection3, selection4])#, selection5, selection6,selection7, selection8, selection9])
 
     image1 = "https://picsum.photos/400/400?image=" + selection1
     image2 = "https://picsum.photos/400/400?image=" + selection2
     image3 = "https://picsum.photos/400/400?image=" + selection3
     image4 = "https://picsum.photos/400/400?image=" + selection4
-    image5 = "https://picsum.photos/400/400?image=" + selection5
-    image6 = "https://picsum.photos/400/400?image=" + selection6
-    image7 = "https://picsum.photos/400/400?image=" + selection7
-    image8 = "https://picsum.photos/400/400?image=" + selection8
-    image9 = "https://picsum.photos/400/400?image=" + selection9
+    # image5 = "https://picsum.photos/400/400?image=" + selection5
+    # image6 = "https://picsum.photos/400/400?image=" + selection6
+    # image7 = "https://picsum.photos/400/400?image=" + selection7
+    # image8 = "https://picsum.photos/400/400?image=" + selection8
+    # image9 = "https://picsum.photos/400/400?image=" + selection9
 
-    images = ([image1, image2, image3, image4, image5, image6,image7,image8,image9])
+    images = ([image1, image2, image3, image4])#, image5, image6,image7,image8,image9])
     randomIndex = random.randint(1,4)
     correctAnswer = selectArray[randomIndex-1]
 
     # this is the data we will prompt the user with so they can made an educated guess
-    promptData = detect_labels_uri("https://picsum.photos/800/800?image=" + correctAnswer)
+    promptData = detect_labels_uri("https://picsum.photos/400/400?image=" + correctAnswer)
 
     return render_template('game.html', promptData=promptData, correctAnswer=correctAnswer, images=images)
 # [END form]
