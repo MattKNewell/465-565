@@ -1,12 +1,12 @@
 <!-- ... header has the header -->
    
 		{% include "header.html" %}
-
-			<h3>At the bottom of the page are 16 unique images. You goal is to 'click' the</h3>
-			<h3>correct image based on the hint above the images. If you need more hints</h3>
-			<h3>click button that states 'Click Here For More Hints'</h3>
+		
+		<div class="intro">
+			<h3>Choose an image based off the hints given!</h3>
+			<h5>Or ask for more hints</h5>
 			<button type="button" id="loadMore" class="btn btn-info">Click Here For More Hints!</button>
-			</div>
+		</div>
 
   <h4>Hints:</h4>
   <ul id="myList">
@@ -56,56 +56,58 @@
 				<li>15 {{ promptData[14].description }}</li>
 			{% endif %}
 	</ul>
-
-     <form method="post" action="{{ url_for('submitted_form') }}">
-		<input hidden type="text"  name="label_data" value="{{promptData}}"></input>
-		 <div class="row">
-				<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[0]}}"><img src={{images[0]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[1]}}"><img src={{images[1]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[2]}}"><img src={{images[2]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[3]}}"><img src={{images[3]}} class="img-fluid"></button>
-				</div>
-      </div>
-		<div class="row">
-				
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[4]}}"><img src={{images[4]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[5]}}"><img src={{images[5]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[6]}}"><img src={{images[6]}} class="img-fluid"></button>
-				</div>
-				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[7]}}"><img src={{images[7]}} class="img-fluid"></button>
-				</div>
+	<div id="game">
+		<form method="post" action="{{ url_for('submitted_form') }}">
+			<input hidden type="text"  name="label_data" value="{{promptData}}"></input>
+			<div class="row">
+					<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[0]}}"><img src={{images[0]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[1]}}"><img src={{images[1]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[2]}}"><img src={{images[2]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[3]}}"><img src={{images[3]}} class="img-fluid"></button>
+					</div>
 		</div>
-		<div class="row">
-				
-				<div class="col-sm">
-						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[8]}}"><img src={{images[8]}} class="img-fluid"></button>
+			<div class="row">
+					
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[4]}}"><img src={{images[4]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+							<button type="submit" class="btn btn-primary" name="image_name" value="{{images[5]}}"><img src={{images[5]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[6]}}"><img src={{images[6]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+							<button type="submit" class="btn btn-primary" name="image_name" value="{{images[7]}}"><img src={{images[7]}} class="img-fluid"></button>
+					</div>
+			</div>
+			<div class="row">
+					
+					<div class="col-sm">
+							<button type="submit" class="btn btn-primary" name="image_name" value="{{images[8]}}"><img src={{images[8]}} class="img-fluid"></button>
+					</div>
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" name="image_name" value="{{images[9]}}"><img src={{images[9]}} class="img-fluid"></button>
 				</div>
 				<div class="col-sm">
-					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[9]}}"><img src={{images[9]}} class="img-fluid"></button>
-			</div>
-			<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[10]}}"><img src={{images[10]}} class="img-fluid"></button>
-			</div>
-			<div class="col-sm">
-				<button type="submit" class="btn btn-primary" name="image_name" value="{{images[11]}}"><img src={{images[11]}} class="img-fluid"></button>
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[10]}}"><img src={{images[10]}} class="img-fluid"></button>
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn btn-primary" name="image_name" value="{{images[11]}}"><img src={{images[11]}} class="img-fluid"></button>
+				</div>
 			</div>
 		</div>
 	   <input hidden type="text" value={{correctAnswer}} name="correctAnswer"><br />
 		 <!--<input type="submit"> -->
     	</form>
-    </div>
+	</div>
+	</div>
   </body>
 </html>
