@@ -23,7 +23,6 @@ def hotdogForm():
 def hotdog():
     hotdogurl = request.form['hotdog']
     promptData = detect_labels_uri(hotdogurl)
-    # print(promptData)
     YesOrNo = "Nope"
     for Label in promptData:
         if("dog" in Label.description):
@@ -32,7 +31,7 @@ def hotdog():
 
 @app.route('/taggame')
 def taggame():
-    imageToTag = "static/images/" +  getRandomNumber() + ".jpg"
+    imageToTag = str(get1RandomNumber() )
     promptData = run_quickstart(imageToTag)
     return render_template('tagGame.html', imageToTag=imageToTag, promptData=promptData)
 
@@ -41,8 +40,6 @@ def tagging():
     userInput = request.form['usertag']
     lastImage = request.form['correct']
     promptData = run_quickstart(lastImage)
-    # print(userInput + " " + lastImage)
-
     return render_template('tagResult.html', userInput=userInput, lastImage=lastImage, promptData=promptData)
 
 @app.route('/')
@@ -97,75 +94,47 @@ def server_error(e):
 # [END app]
 
 def run_quickstart(image_name):
-    # [START vision_quickstart]
     import io
     import os
 
-    # Imports the Google Cloud client library
-    # [START vision_python_migration_import]
     from google.cloud import vision
     from google.cloud.vision import types
-    # [END vision_python_migration_import]
 
-    # Instantiates a client
-    # [START vision_python_migration_client]
     client = vision.ImageAnnotatorClient()
-    # [END vision_python_migration_client]
 
-    # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
         image_name)
 
-    # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
         content = image_file.read()
 
     image = types.Image(content=content)
 
-    # Performs label detection on the image file
     response = client.label_detection(image=image)
     labels = response.label_annotations
-
-    #print('Labels:')
-    #for label in labels:
-        #print(label.description)
-     #[END vision_quickstart]
     return labels
 
 def detect_labels_uri(uri):
-    # [START vision_quickstart]
     import io
     import os
-
-    # Imports the Google Cloud client library
-    # [START vision_python_migration_import]
     from google.cloud import vision
     from google.cloud.vision import types
-    # [END vision_python_migration_import]
 
-    # Instantiates a client
-    # [START vision_python_migration_client]
     client = vision.ImageAnnotatorClient()
-    # [END vision_python_migration_client]
 
     image = vision.types.Image()
     image.source.image_uri = uri
 
-
-    # Performs label detection on the image file
     response = client.label_detection(image=image)
     labels = response.label_annotations
 
     return labels
 
 def getRandomNumber():
-   # randomNumber = random.randint(1,906)
-   #return str(randomNumber)
    return random.sample(range(1, 907), 12)
 
 
-# by using the api function call we create more api calls than needed
 def checkImage():
     rando1 = getRandomNumber()
     ranUrl = detect_labels_uri("https://picsum.photos/800/800?image=" + str(rando1) )
@@ -173,12 +142,8 @@ def checkImage():
       return checkImage()
     return str(rando1)
 
-def checkimage(image):
-    rando1 = getRandomNumber()
-    ranUrl = "static/images/" + getRandomNumber() + ".jpg"
-    if not ranUrl:
-      return checkimage()
-    return str(rando1)
+def get1RandomNumber():
+    return "static/images/" + str( random.randint(1,906) )+ ".jpg"
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080,debug=True)

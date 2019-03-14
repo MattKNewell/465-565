@@ -1,20 +1,12 @@
-#myList li{ display:none;
-
-}
-
-.pagetitle {
-    color: #800080;
+#myList li{ 
+    display:none;
+    font-size: 150%;
 }
 
 #organizer {
     margin: 100;
-    /* background: coral; */
-    /* position: absolute; */
     top: 50%;
     left: 50%;
-    /* right: 50%; */
-    /* margin-right: -50%; */
-    /* transform: translate(-50%, -50%)  */
 }
 
 img {
