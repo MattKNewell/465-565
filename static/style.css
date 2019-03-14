@@ -21,7 +21,6 @@ img {
     height:200;
 }
 
-
 .row{
     margin-bottom:5%;
 }
@@ -31,3 +30,11 @@ img {
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color:#e3f2fd !important;
 }
+.card.bg-success, .card.bg-success:hover, .card.bg-success:active, .card.bg-success:visited {
+    background-color:#76cc78 !important;
+}
+
+.card.bg-danger, .card.bg-danger:hover, .card.bg-danger:active, .card.bg-danger:visited {
+    background-color:#d85252 !important;
+}
+

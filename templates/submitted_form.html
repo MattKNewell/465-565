@@ -8,10 +8,17 @@
     <div class="col-sm">
 <div class="card" style="width: 18rem;">
     <img src={{userGuess}} class="card-img-top" alt="...">
+    {% if successOrFailure == "Correct" %}
+  <div class="card text-white bg-success"> 
     <div class="card-body">
       <h5 class="card-title">{{successOrFailure}}</h5>
+    {% else %}
+  <div class="card text-white bg-danger"> 
+    <div class="card-body">
+      <h5 class="card-title">{{successOrFailure}}</h5>
+    {% endif %}
       <p class="card-text">
-
+        Descriptions of this image:
         <ul>
 			{% if imgObject[0] is defined %}
 				<li>{{ imgObject[0].description }}</li>
@@ -61,10 +68,10 @@
 	</ul>
 
       </p>
-      <a href="/" class="btn btn-primary">Play Again</a>
+      <a href="/" class="btn btn-warning">Click Here to Play Again</a>
     </div>
 	</div>
-
+  </div>
 
 
 </div>
