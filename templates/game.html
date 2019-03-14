@@ -2,11 +2,13 @@
    
 		{% include "header.html" %}
 
-			<h1>One Image matches the descriptions</h1>
-			<button type="button" id="loadMore" class="btn btn-info">Load More Descriptions</button>
+			<h3>At the bottom of the page are 16 unique images. You goal is to 'click' the</h3>
+			<h3>correct image based on the hint above the images. If you need more hints</h3>
+			<h3>click button that states 'Click Here For More Hints'</h3>
+			<button type="button" id="loadMore" class="btn btn-info">Click Here For More Hints!</button>
 			</div>
 
-
+  <h4>Hints:</h4>
   <ul id="myList">
 			{% if promptData[0] is defined %}
 				<li>1. {{ promptData[0].description }}</li>
