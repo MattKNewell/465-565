@@ -9,8 +9,6 @@ of the images and allow the user to try their hand at matching the
 description to the image.
 
 ---
-This app is hosted by Google Cloud Platform using App Engine at
-this url.  <https://ivory-antler-233122.appspot.com/>
 
 Create your own api key:
 #### create a service account
